@@ -32,8 +32,10 @@ public class ponit3 {
 		}
 		
 		JOptionPane.showMessageDialog(null, mensaje.toString(), "Contenido del ArrayList", JOptionPane.INFORMATION_MESSAGE);
-		JOptionPane.showMessageDialog(null, "La centidad de ventas fue " + contador);
+		JOptionPane.showMessageDialog(null, "La cantidad de ventas fue " + contador);
 		JOptionPane.showMessageDialog(null, "El total de ventas fue de " + total(ventas));
+		JOptionPane.showMessageDialog(null, "El promedio de ventas fue de " + promedio(ventas));
+		JOptionPane.showMessageDialog(null, "La venta mas cercana al promedio es " + nearbySale(promedio(ventas), ventas));
 		JOptionPane.showMessageDialog(null, "La venta mayor fue " + mayorSale(ventas));
 		JOptionPane.showMessageDialog(null, "La venta menor fue " + menorSale(ventas));
 		
@@ -113,5 +115,25 @@ public class ponit3 {
 			return promedio;
 	
 		}
+	
+	private static Integer nearbySale(int promedio,ArrayList<Integer> lista) {
+
+		int diferencia;
+		int diferenciaMinima = (int) Double.POSITIVE_INFINITY;
+		int numeroCercano = 0;
+		  
+		for (int i = 0; i < lista.size(); i++) {
+			
+			diferencia = Math.abs(lista.get(i)- promedio);
+			if (diferencia < diferenciaMinima) {
+				diferenciaMinima = diferencia;
+				numeroCercano = lista.get(i);
+			}
+			
+		}
+	
+	
+		return numeroCercano;
+	}
 
 }
