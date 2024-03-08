@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-public class point2 {
+public class ponit3 {
 	public static void main(String[] args) {
 		
-// 		MANIPULAR ELEMETOS DENTRO DE UN ARREGLO
+//		BUSCAR ELEMENTOS EN UN ARREGLO
 		
 		ArrayList<Integer> ventas = new ArrayList<>();
 		int contador = 0;
@@ -40,6 +40,6 @@ public class point2 {
 		JOptionPane.showMessageDialog(null, "El total de ventas fue de " + total);
 		JOptionPane.showMessageDialog(null, "El promedio de ventas fue de " + promedio);
 		
-		
 	}
+
 }
