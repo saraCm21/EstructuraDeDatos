@@ -2,6 +2,8 @@ package modulo_1;
 
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class point1 {
 	public static void main(String[] args) {
 		
@@ -147,7 +149,23 @@ public class point1 {
 			System.out.print(i + ", ");
 		}
 		
-
+// DECLARAR Y DEFINIR UN ARREGLO DE TIPO STRING EN UNA VARIABLE LLAMADA DATASTRUCTS Y USAR UNA SINTAXIS DE LLAVES 
+		
+		String[] dataStructs = {"Listas: ", "Colas: ", "Pilas: ", "Mapas: ", "Conjuntos: "};
+		String[] caracteristicas = new String[5];
+		
+		for (int i = 0; i < caracteristicas.length; i++) {
+			caracteristicas[i] = JOptionPane.showInputDialog(null, "Ingrese las caracteristicas numero " + (i+1));
+			
+		}
+		
+		for (int i = 0; i < caracteristicas.length; i++) {
+			JOptionPane.showMessageDialog(null, dataStructs[i] + caracteristicas[i]);
+			
+		}
+		
+		
+		
 		
 		
 		
