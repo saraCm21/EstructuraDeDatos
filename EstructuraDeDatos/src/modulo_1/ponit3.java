@@ -1,7 +1,5 @@
 package modulo_1;
 
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 
 public class ponit3 {
@@ -9,18 +7,17 @@ public class ponit3 {
 		
 //		BUSCAR ELEMENTOS EN UN ARREGLO
 		
-		ArrayList<Integer> ventas = new ArrayList<>();
-		int contador = 0;
-		int respuesta;
+		int length = (int) (Math.random()*10);
+		int ventas[] = new int[length];
 		StringBuilder mensaje = new StringBuilder();
 		
-		do {
+		JOptionPane.showMessageDialog(null, "Ingrese el valor de las " + length + " ventas");
+		
+		for (int i = 0; i < ventas.length; i++) {
 			
-			ventas.add(Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese el valor de la venta")));
-			respuesta = JOptionPane.showConfirmDialog(null, "¿Desea continuar?", "Confirmación", JOptionPane.YES_NO_OPTION);
-			contador++;
+			ventas[i] = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el valor de la venta " + (i+1)));
 			
-		} while (respuesta == JOptionPane.YES_OPTION);	
+		}
 		
 		
 		int contador2 = 1;
@@ -31,103 +28,50 @@ public class ponit3 {
 		    contador2++;
 		}
 		
-		JOptionPane.showMessageDialog(null, mensaje.toString(), "Contenido del ArrayList", JOptionPane.INFORMATION_MESSAGE);
-		JOptionPane.showMessageDialog(null, "La cantidad de ventas fue " + contador);
+		JOptionPane.showMessageDialog(null, mensaje.toString(), "Contenido del arreglo", JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, "La cantidad de ventas fue " + length);
 		JOptionPane.showMessageDialog(null, "El total de ventas fue de " + total(ventas));
-		JOptionPane.showMessageDialog(null, "El promedio de ventas fue de " + promedio(ventas));
-		JOptionPane.showMessageDialog(null, "La venta mas cercana al promedio es " + nearbySale(promedio(ventas), ventas));
+		JOptionPane.showMessageDialog(null, "El promedio de ventas fue de " + promedio(total(ventas), length));
+		JOptionPane.showMessageDialog(null, "La venta mas cercana al promedio es " + nearbySale(promedio(total(ventas), length), ventas));
 		JOptionPane.showMessageDialog(null, "La venta mayor fue " + mayorSale(ventas));
 		JOptionPane.showMessageDialog(null, "La venta menor fue " + menorSale(ventas));
 		
 		
 	}
 	
-	private static int mayorSale(ArrayList<Integer> lista) {
+	private static int total(int lista[]) {
+	
+	int sumatoria = 0;
+	
+	for (int i = 0; i < lista.length; i++) {
 		
-		// ALGORIDMO DE BUSQUEDA DE VALOR MAXIMO
-		
-		Integer mayor = 0;
-		int contador = 0;
-		
-		for (@SuppressWarnings("unused") Integer integer : lista) {
-			if (mayor < lista.get(contador)) {
-				mayor = lista.get(contador);
-			}
-			
-			contador++;
-		}
-		
-		return mayor;
-
+		sumatoria = sumatoria + lista[i];
 	}
 	
-	private static int menorSale(ArrayList<Integer> lista) {
-			
-		//  ALGORITMO DE BURBUJA - ORDENAR DE MENOR A MAYOR, EL NUMERO MENOR ES EL PRIMER ELEMENTO DE LA LISTA
-		
-			Integer aux;
-			 for (int i = 0; i < (lista.size()-1); i++) {
-				 for (int j = 0; j < (lista.size()-1); j++) {
-					if (lista.get(j) > lista.get(j+1) ) {
-						
-						aux = lista.get(j);
-						lista.set(j, lista.get(j+1));
-						lista.set(j+1, aux);
+	return sumatoria;
 	
-					}
-				}
-			}
-			
-			return lista.get(0);
-	
-		}
-	
-	private static int total(ArrayList<Integer> lista) {
-		
-		int sumatoria = 0;
-		int contador = 0;
-		
-		for (@SuppressWarnings("unused") Integer integer : lista) {
-			
-			sumatoria = sumatoria + lista.get(contador);
-			contador++;
-			
-		}
-		
-		return sumatoria;
-
 	}
 	
-	private static int promedio(ArrayList<Integer> lista) {
-			
-			int sumatoria = 0;
-			int contador = 0;
-			int promedio;
-			
-			for (@SuppressWarnings("unused") Integer integer : lista) {
-				
-				sumatoria = sumatoria + lista.get(contador);
-				contador++;
-				
-			}
-			
-			promedio = sumatoria/lista.size();
-			return promedio;
+	private static int promedio(int total, int tamaño) {
+		
+		int promedio = total/tamaño;
+		
+		return promedio;
+		
+	}
 	
-		}
-	
-	private static Integer nearbySale(int promedio,ArrayList<Integer> lista) {
+	private static Integer nearbySale(int promedio, int lista[]) {
 
 		int diferencia;
 		int diferenciaMinima = (int) Double.POSITIVE_INFINITY;
 		int numeroCercano = 0;
 		  
-		for (int i = 0; i < lista.size(); i++) {
+		for (int i = 0; i < lista.length; i++) {
 			
-			diferencia = Math.abs(lista.get(i)- promedio);
+			diferencia = Math.abs(lista[i]- promedio);
 			if (diferencia < diferenciaMinima) {
 				diferenciaMinima = diferencia;
-				numeroCercano = lista.get(i);
+				numeroCercano = lista[i];
 			}
 			
 		}
@@ -136,4 +80,49 @@ public class ponit3 {
 		return numeroCercano;
 	}
 
-}
+
+	
+	private static int mayorSale(int lista[]) {
+		
+		// ALGORIDMO DE BUSQUEDA DE VALOR MAXIMO
+		
+		int mayor = 0;
+		
+	for (int i = 0; i < lista.length; i++) {
+		
+		if(lista[i] > mayor) {
+			mayor = lista[i];
+		}
+		
+	}
+		
+		return mayor;
+
+	}
+	
+	private static int menorSale(int lista[]) {
+			
+		//  ALGORITMO DE BURBUJA - ORDENAR DE MENOR A MAYOR, EL NUMERO MENOR ES EL PRIMER ELEMENTO DE LA LISTA
+		
+			Integer aux;
+			 for (int i = 0; i < (lista.length-1); i++) {
+				 for (int j = 0; j < (lista.length-1); j++) {
+					if (lista[j] > lista[j+1] ) {
+						
+						aux = lista[j];
+						lista[j] = lista[j+1];
+						lista[j+1] = aux;
+	
+					}
+				}
+			}
+			
+			return lista[0];
+	
+		}
+	
+
+	
+
+
+  }
