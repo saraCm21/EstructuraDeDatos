@@ -60,7 +60,7 @@ public class ponit3 {
 		
 	}
 	
-	private static Integer nearbySale(int promedio, int lista[]) {
+	private static int nearbySale(int promedio, int lista[]) {
 
 		int diferencia;
 		int diferenciaMinima = (int) Double.POSITIVE_INFINITY;
@@ -120,9 +120,5 @@ public class ponit3 {
 			return lista[0];
 	
 		}
-	
-
-	
-
 
   }
