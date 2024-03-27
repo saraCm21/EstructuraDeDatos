@@ -152,7 +152,9 @@ public class point1 {
 // DECLARAR Y DEFINIR UN ARREGLO DE TIPO STRING EN UNA VARIABLE LLAMADA DATASTRUCTS Y USAR UNA SINTAXIS DE LLAVES 
 		
 		String[] dataStructs = {"Listas: ", "Colas: ", "Pilas: ", "Mapas: ", "Conjuntos: "};
-		String[] caracteristicas = new String[5];
+		String[] caracteristicas;
+		
+		caracteristicas = new String[5];
 		
 		for (int i = 0; i < caracteristicas.length; i++) {
 			caracteristicas[i] = JOptionPane.showInputDialog(null, "Ingrese las caracteristicas numero " + (i+1));
@@ -164,7 +166,6 @@ public class point1 {
 			
 		}
 		
-//		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
 		
 		
 		
