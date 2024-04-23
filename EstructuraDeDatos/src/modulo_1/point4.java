@@ -200,7 +200,7 @@ public class point4 {
 			
 		JOptionPane.showMessageDialog(null, mensaje.toString(), "Contenido del arreglo", JOptionPane.INFORMATION_MESSAGE);
 
-		
+		 
 	}
 
 }
