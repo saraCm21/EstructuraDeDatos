@@ -18,7 +18,7 @@ public class MenuTaks {
 		System.out.println("1. Agregar tarea");
 		System.out.println("2. Completar tarea");
 		System.out.println("3. Mostrar tareas pendientes");
-		System.out.println("4. Salir");
+		System.out.println("4. Salir"); 
 		System.out.print("Ingrese una opción: ");
 		opcion = teclado.nextInt();
 		
